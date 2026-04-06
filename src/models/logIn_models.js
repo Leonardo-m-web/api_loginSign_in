@@ -1,12 +1,17 @@
 import bcrypt from 'bcrypt';
-import users from '../db.js';
+import {pool} from '../server.js';
 
+//função que realiza o login
 export async function login(dados){
-    const user = users.find(u=> u.email === dados.email)
 
-    if(!user) return false;
+    //procura os dados pelo email
+    const [rows] = await pool.execute('select * from Users where email = ?', [dados.email]);
 
-    if(!await bcrypt.compare(dados.password, user.password)) return false;
+    //verifica se existe algum usuário com o email
+    if(!rows[0]) return false
 
-    return user;
+    //se o email existir verifica se a senha é a mesma
+    if(!await bcrypt.compare(dados.password, rows[0].password)) return false;
+
+    return rows[0];
 }

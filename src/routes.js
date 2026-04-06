@@ -1,13 +1,18 @@
 import express from 'express';
-import { signinC } from './controllers/signIn_controllers.js';
-import { loginC } from './controllers/logIn_controllers.js';
+import { registerC } from './controllers/register_controllers.js';
+import { loginC , logoutC} from './controllers/login-out_controllers.js';
 import {refreshToken } from './middlewares/auth_middleware.js';
 import {validation} from './middlewares/validation_middleware.js';
 
 const router = express.Router();
 
-router.post('/signin' , validation('signin') , signinC); 
+//rota de cadastro
+router.post('/register' , validation('register') , registerC); 
+//rota de login
 router.post('/login' , validation('login') , loginC);
-router.get('/refreshToken' , refreshToken)
+//rota de logout
+router.delete('/logout' , logoutC);
+//rota de refresh token
+router.get('/refresh-token' , refreshToken)
 
 export default router;
