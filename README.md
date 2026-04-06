@@ -9,13 +9,13 @@ Esse projeto é um código backend de uma API de registro, login e logout, usand
 `POST /api/register`
 
 ### Request Body
-    ```json
-    {
-        "name": "João Silva", //minimo 3 char
-        "email": "joao@email.com", //minimo 5 char
-        "password": "senha123456" //minimo 11 char
-    }
-    ```
+```json
+{
+    "name": "João Silva", //minimo 3 char
+    "email": "joao@email.com", //minimo 5 char
+    "password": "senha123456" //minimo 11 char
+}
+```
 
 ### Response
 
@@ -47,12 +47,12 @@ Esse projeto é um código backend de uma API de registro, login e logout, usand
 `POST /api/login` 
 
 ### Request Body
-    ```json
-    {
-        "email": "joao@email.com", //minimo 5 char
-        "password": "senha123456" //minimo 11 char
-    }
-    ```
+```json
+{
+    "email": "joao@email.com", //minimo 5 char
+    "password": "senha123456" //minimo 11 char
+}
+```
 ### Response
 
  - 201 
@@ -77,12 +77,11 @@ Esse projeto é um código backend de uma API de registro, login e logout, usand
 `DELETE /api/logout` 
 
 ### Headers
-
-    ```json
-    {
-        cookies: refreshToken=<refreshToken> //httpOnly
-    }
-    ```
+```json
+{
+    cookies: refreshToken=<refreshToken> //httpOnly
+}
+```
 
 ### Response
 
@@ -107,12 +106,11 @@ Esse projeto é um código backend de uma API de registro, login e logout, usand
 `GET /api/refresh-token` 
 
 ### Headers
-
-    ```json
-    {
-        cookies: refreshToken=<refreshToken> //httpOnly
-    }
-    ```
+```json
+{
+    cookies: refreshToken=<refreshToken> //httpOnly
+}
+```
 
 ### Response
 
