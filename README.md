@@ -9,11 +9,11 @@ Esse projeto é um código backend de uma API de registro, login e logout, usand
 `POST /api/register`
 
 ### Request Header
-    ```json
-    {
-        "Authorization" : "Bearer <accessToken>"
-    }
-    ```
+```json
+{
+    "Authorization" : "Bearer <accessToken>"
+}
+```
 
 ### Response
 
