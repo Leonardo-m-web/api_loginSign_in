@@ -14,7 +14,7 @@ export async function loginC(req, res){
         //serializa os dados do usuário que serão gurdados no token
         const dados ={
             id: result.id,
-            nome: result.nome,
+            name: result.name,
             email: result.email
         }
 

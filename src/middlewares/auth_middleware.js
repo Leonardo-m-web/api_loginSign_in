@@ -25,3 +25,20 @@ export async function refreshToken(req, res){
         return res.status(500).json({message: 'Erro interno do servidor'})
     }
 }
+
+export async function authenticateToken(req, res, next){
+    const token = req.headers['authorization'].split(' ')[1]
+
+    try{
+        if(!token) return res.status(401).json({message: 'Token não encontrado'})
+
+        jwt.verify(token, process.env.TOKEN_KEY, (err, user) =>{
+            if(err) return res.status(403).json({message: 'Token inválido'})
+            req.user = user
+            next()
+        })
+
+    }catch(err){
+        return res.status(500).json({message: 'Erro interno do servidor'})
+    }
+}

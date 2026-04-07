@@ -4,6 +4,45 @@
 
 Esse projeto é um código backend de uma API de registro, login e logout, usando token jwt (acssess com refresh). Suas rotas são :
 
+**Pega os dados de um usuário logado**
+
+`POST /api/register`
+
+### Request Header
+    ```json
+    {
+        "Authorization" : "Bearer <accessToken>"
+    }
+    ```
+
+### Response
+
+ - 200
+    ```json
+    {
+        "status": "success",
+        "user" : {
+            "id": 1 ,
+            "name": "João Silva", 
+            "email": "joao@email.com",
+        }
+    }
+    ```
+ - 401
+    ```json
+    {
+        "status": "error",
+        "message": "Token não encontrado" 
+    }
+    ```
+ - 403
+    ```json
+    {
+        "status": "error",
+        "message": "Token inválido"
+    }
+    ```
+
 **Registra um novo usuário no sistema**
 
 `POST /api/register`
